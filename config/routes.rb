@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
 
   get 'welcome/contact'
+
+  get 'welcome/wikis'
   
 
   root to: 'welcome#index' 
