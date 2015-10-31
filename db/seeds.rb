@@ -8,8 +8,25 @@
 
 
 
-u = User.create(email: "Michael@example.com", password: "password")
-u.confirm!
+require 'faker'
+
+50.times do
+ # #1
+   Wiki.create!(
+ # #2
+     title:  Faker::Lorem.sentence,
+     body:   Faker::Lorem.paragraph
+   )
+ end
+ wikis = Wiki.all
 
 
-u.wikis << Wiki.create(title: "Some sample wiki.")
+20.times do
+ # #1
+   User.create!(
+ # #2
+     email: Faker::Internet.email,
+     password: Faker::Internet.password
+   )
+ end
+ users = User.all

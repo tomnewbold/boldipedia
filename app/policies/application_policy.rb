@@ -16,6 +16,11 @@ class ApplicationPolicy
   end
 
   def create?
+    if user.present?
+      true
+    else
+      false
+    end
     
   end
 
@@ -34,6 +39,11 @@ class ApplicationPolicy
   end
 
   def destroy?
+    if user.present? && user.admin? #|| record.user == user)
+      true
+    else
+      false
+    end
     
   end
 
