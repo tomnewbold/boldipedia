@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   get 'welcome/contact'
 
   get 'welcome/wikis'
+  get '/charges/new'
   
 
   root to: 'welcome#index' 
+
+  resources :charges, only: [:new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
