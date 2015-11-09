@@ -1,8 +1,8 @@
 <h1>All Wikis</h1>
 <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'btn btn-success' %>
-<% if policy(@wiki).show? %>
+<% if policy(:wiki).show? %>
 <%= link_to "Fancy an upgrade?", new_charge_path, class: 'btn btn-primary' %>
 <% end %>
-<% @wiki.each do |wiki| %>
+<% @wikis.each do |wiki| %>
   <p><%= link_to wiki.title, wiki_path(wiki.id) %></p>
 <% end %>
