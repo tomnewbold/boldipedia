@@ -1,0 +1,11 @@
+ <%= form_tag charges_path do %>
+   <h4>Upgrade to Premium!</h4>
+   <li>
+      <ul> Access to Private Wikis</ul>
+      <ul> Invite standard users to collborate</ul>
+      <ul> Admiration and respect of all your friends</ul>
+      <ul> Meet the Queen</ul>
+      
+   </li>
+   <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount=<%= @stripe_btn_data[:amount] %> data-description="<%= @stripe_btn_data[:description] %>" ></script>
+ <% end %>

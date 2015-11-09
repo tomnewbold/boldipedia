@@ -11,6 +11,11 @@ class ApplicationPolicy
   end
 
   def show?
+    if user.standard?
+      true
+    else
+      false
+    end
     
     
   end

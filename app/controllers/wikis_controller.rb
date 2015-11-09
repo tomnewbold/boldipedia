@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   def index
-    @wiki = Wiki.all
+    @wiki = Wiki.visible_to(current_user)
   end
 
   def show
@@ -41,9 +41,10 @@ class WikisController < ApplicationController
        render :new
      end
    end
+
   def update
      @wiki = Wiki.find(params[:id])
-     if @wiki.update_attributes(params.require(:wiki).permit(:title, :body))
+     if @wiki.update_attributes(params.require(:wiki).permit(:title, :body, :private))
        flash[:notice] = "Wiki was updated."
        redirect_to @wiki
      else
