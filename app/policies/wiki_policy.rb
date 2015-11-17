@@ -23,6 +23,7 @@ class WikiPolicy < ApplicationPolicy
        @user = user
        @scope = scope
      end
+
  
      def resolve
        wikis = []

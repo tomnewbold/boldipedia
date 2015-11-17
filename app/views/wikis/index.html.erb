@@ -3,6 +3,9 @@
 <% if policy(:wiki).show? %>
 <%= link_to "Fancy an upgrade?", new_charge_path, class: 'btn btn-primary' %>
 <% end %>
+<% if policy(:wiki).downgrade? %>
+<%= link_to "Back to Standard?", charges_downgrade_path, class: 'btn btn-primary' %>
+<% end %>
 <% @wikis.each do |wiki| %>
   <p><%= link_to wiki.title, wiki_path(wiki.id) %></p>
 <% end %>

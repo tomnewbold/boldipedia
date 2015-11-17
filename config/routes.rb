@@ -14,11 +14,15 @@ Rails.application.routes.draw do
 
   get 'welcome/wikis'
   get '/charges/new'
-  
+  get '/charges/downgrade'
+  get '/charges/completed'
+  post "charges/downgrade1" => "charges#downgrade1"
 
   root to: 'welcome#index' 
 
-  resources :charges, only: [:new, :create]
+  resources :charges, only: [:new, :create,]
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,4 +1,4 @@
-class ChargesController < ApplicationController
+ class ChargesController < ApplicationController
 
   def new
     @amount = 15_00
@@ -7,6 +7,19 @@ class ChargesController < ApplicationController
       description: "BigMoney Membership - #{current_user}",
       amount: @amount
     }
+  end
+
+  
+
+  def downgrade1
+    if current_user.premium?
+    current_user.update_attribute(:role, 'standard')
+    flash[:success] = "You have been downgraded to standard."
+    redirect_to root_url
+    else
+      false
+    end
+   
   end
 
   def create
