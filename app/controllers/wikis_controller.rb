@@ -1,9 +1,13 @@
 class WikisController < ApplicationController
   before_action :authenticate_user!, only: :index
   def index
-    # @wiki = Wiki.visible_to(current_user)
+    Wiki.visible_to(current_user)
     @wikis = policy_scope(Wiki)
   end
+
+
+
+
 
   def show
     @wiki = Wiki.find(params[:id])
@@ -14,6 +18,7 @@ class WikisController < ApplicationController
   def new
     @wiki = Wiki.new
   end
+ 
  
 
   def create

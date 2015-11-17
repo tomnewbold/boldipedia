@@ -10,6 +10,8 @@ class ApplicationPolicy
     
   end
 
+
+
   def show?
     if user.standard?
       true
@@ -18,6 +20,14 @@ class ApplicationPolicy
     end
     
     
+  end
+
+  def downgrade?
+    if user.premium?
+      true
+    else
+      false
+    end
   end
 
   def create?
