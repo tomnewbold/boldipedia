@@ -14,12 +14,20 @@
   def downgrade1
     if current_user.premium?
     current_user.update_attribute(:role, 'standard')
+    current_user.public_wikis
     flash[:success] = "You have been downgraded to standard."
     redirect_to root_url
     else
       false
     end
    
+  end
+  def public_wikis
+    wikis.each do |wiki|
+      if wiki.private? == true
+        wiki.update_attributes(private: false)
+      end
+    end
   end
 
   def create
