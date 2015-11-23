@@ -16,11 +16,17 @@ class User < ActiveRecord::Base
 
    def premium?
     role == "premium"
-  end
+   end
 
    def standard?
     role == "standard"
+   end
+
+  def public_wikis
+    wikis.each do |wiki|
+      if wiki.private == true
+        wiki.update_attributes(private: false)
+      end
+    end
   end
-
-
 end
