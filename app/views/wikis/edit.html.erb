@@ -15,7 +15,7 @@
        <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
        </div>
-       <% if current_user.admin? || current_user.premium? %>
+       <% if current_user.admin? || (current_user.premium? && @wiki.user == current_user) %>
           <div class="form-group">
             <%= f.label :private, class: 'checkbox' do %>
               <%= f.check_box :private %> Private wiki
@@ -25,3 +25,29 @@
      <% end %>
    </div>
  </div>
+
+<% if current_user.admin? || (current_user.premium? && @wiki.user == current_user) && @wiki.private?%>
+ <h2> Add Collaborator </h2>
+ <%= form_for Collaborator.new do |f| %>
+  <%= f.hidden_field :wiki_id, value: @wiki.id %>
+  <%= f.collection_select :user_id, User.all, :id, :email %>
+  <%= f.submit %>
+<% end %>
+<% end %>
+
+
+<br>
+<br>
+<br>
+
+
+<% if current_user.admin? || (current_user.premium? && @wiki.user == current_user) && @wiki.private? %>
+<h2> Delete Collaborators </h2>
+<p>(Click on a link to delete a collaborator)</p>
+<% @wiki.collaborators.each do |c| %>
+  <a href="/collaborators/<%= c.id %>" data-method="DELETE"><br><%= c.user.email %></a>
+  <br/>
+<% end %>
+<% end %>
+
+
