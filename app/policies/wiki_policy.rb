@@ -10,7 +10,7 @@ class WikiPolicy < ApplicationPolicy
   def update?
     user.present?
 
-
+   
 
     #this method is going to return true or false
     # if true, it oncintues
@@ -26,9 +26,7 @@ class WikiPolicy < ApplicationPolicy
      end
 
 
-
-
- 
+  
      def resolve
        wikis = []
        if user.role == 'admin'

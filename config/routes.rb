@@ -18,9 +18,12 @@ Rails.application.routes.draw do
   get '/charges/completed'
   post "charges/downgrade1" => "charges#downgrade1"
 
+  
+
   root to: 'welcome#index' 
 
   resources :charges, only: [:new, :create,]
+  resources :collaborators
 
 
 

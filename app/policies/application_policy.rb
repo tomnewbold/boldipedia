@@ -18,9 +18,19 @@ class ApplicationPolicy
     else
       false
     end
+
     
     
-  end
+ 
+ end 
+
+  def collaborator?
+      if @wiki.private? && @wiki.user == user
+        true
+      else
+        false
+      end
+    end
 
   def downgrade?
     if user.premium?
@@ -29,6 +39,8 @@ class ApplicationPolicy
       false
     end
   end
+
+
 
   def create?
     if user.present?
