@@ -1,4 +1,29 @@
-<h1> Welcome to Boldipedia!</h1>
+<div class="jumbotron">
+
+<h1 class="text-center">Boldipedia</h1>
+
+ <p class="text-center"> Create. Contribute. Collaborate.<br>
+ </p>
+<br>
+<div class="span7 text-center">
+
+<% if !user_signed_in? %>
+ <p><a class="btn btn-primary btn-lg" href= "/users/sign_up" role="button">Sign up!</a></p>
+ <%end%>
+</div>
+
+
+</div>
+
+<div class="col-md-4 text-center">
+  <h1>Standard</h1>
+  <p>Standard membership gives you the power to create, update and edit all public wikis available on Boldipedia. There's a better option though, have you taken a look at all that other information to your right? Yep, there it is. Premium. Want to be really popular? Want to be rich, successful and famous? Would you like to meet the Queen of England herself? Well, all these things are possible* if you just take a chance...  </p>
+</div>
+
+<div class="col-md-4 text-center col-md-offset-4">
+  <h1>Premium</h1>
+  <p>So you've decided to harness the power of Premium? For <i>just</i> £14.99 you can upgrade to a Premium membership, giving you access to your own private wikis! Not just that, you can invite other members, including those lowly Standard scrubs, to collaborate with you on your sparkly new private wikis. Don't panic though, you can send them back to whenst they came from, with just a click of the 'delete' button. Upgrade now!  </p>
+</div>
 
 
  
